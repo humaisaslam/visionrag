@@ -8,19 +8,19 @@ Unlike cloud-based document Q&A tools, **your data never leaves your machine.** 
 
 ---
 
-## ✨ Features
+## Features
 
-- 📄 **Text + Image Understanding** — Extracts and indexes both text and embedded images from PDFs
-- 🖼️ **Vision Captioning** — Uses a local Vision Language Model (LLaVA-Phi3) to describe charts, diagrams, tables, and figures
-- 🔍 **Semantic Search** — Embeds all content with `qwen3-embedding:4b` and stores in ChromaDB for fast cosine similarity retrieval
-- 💬 **Streaming Chat UI** — Clean Streamlit interface with real-time streamed answers
-- 📏 **Response Modes** — Toggle between Short (2-sentence) and Normal (detailed) answers
-- 🔒 **100% Offline** — No cloud APIs, no data sent externally, runs entirely on your hardware
-- ⚡ **Parallel Embedding** — Multi-threaded embedding pipeline for fast ingestion of large PDFs
+- **Text + Image Understanding** — Extracts and indexes both text and embedded images from PDFs
+- **Vision Captioning** — Uses a local Vision Language Model (LLaVA-Phi3) to describe charts, diagrams, tables, and figures
+- **Semantic Search** — Embeds all content with `qwen3-embedding:4b` and stores in ChromaDB for fast cosine similarity retrieval
+- **Streaming Chat UI** — Clean Streamlit interface with real-time streamed answers
+- **Response Modes** — Toggle between Short (2-sentence) and Normal (detailed) answers
+- **100% Offline** — No cloud APIs, no data sent externally, runs entirely on your hardware
+- **Parallel Embedding** — Multi-threaded embedding pipeline for fast ingestion of large PDFs
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 PDF Input
@@ -60,7 +60,7 @@ PDF Input
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 vision-rag/
@@ -78,7 +78,7 @@ vision-rag/
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 
 ### System Requirements
 - Python 3.10+
@@ -106,7 +106,7 @@ ollama pull qwen3-embedding:4b
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 **1. Clone the repository**
 ```bash
@@ -139,7 +139,7 @@ streamlit run app.py
 
 ---
 
-## 💡 How to Use
+##  How to Use
 
 1. **Upload a PDF** via the sidebar
 2. Optionally check **"Clear existing KB first"** if switching documents
@@ -166,7 +166,7 @@ Key settings are at the top of each module:
 
 ---
 
-## 🧩 Module Overview
+##  Module Overview
 
 ### `pdf_extractor.py`
 Uses **PyMuPDF (fitz)** to extract page-by-page text and all embedded images. Images are saved to `data/images/` with filenames like `page3_img2.jpeg` for page tracking.
@@ -214,14 +214,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ---
 
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE) for details.
-
----
-
 ## 👤 Author
 
 **Muhammad Humais Aslam**
 AI Engineer · Automation Builder
-[LinkedIn](https://linkedin.com/in/yourprofile) · [GitHub](https://github.com/yourusername) · humaisaslam@gmail.com
+[LinkedIn](https://linkedin.com/in/humaisaslam) · [GitHub](https://github.com/yourusername) · humaisaslam@gmail.com
+
