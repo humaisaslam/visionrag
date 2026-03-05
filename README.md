@@ -1,6 +1,6 @@
-# 🧠 Vision RAG — Offline Multimodal PDF Q&A
+# Vision RAG — Offline Multimodal PDF Q&A
 
-## 📌 What is Vision RAG?
+## What is Vision RAG?
 
 Vision RAG is a fully **offline** Retrieval-Augmented Generation system that lets you chat with your PDF documents — including charts, diagrams, tables, and images inside them.
 
@@ -219,4 +219,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 **Muhammad Humais Aslam**
 AI Engineer · Automation Builder
 [LinkedIn](https://linkedin.com/in/humaisaslam) · [GitHub](https://github.com/yourusername) · humaisaslam@gmail.com
+
 
