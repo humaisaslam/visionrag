@@ -93,35 +93,12 @@ Key settings are at the top of each module:
 | `image_captioner.py` | `MIN_IMAGE_SIZE_BYTES` | `10,000` | Skip images smaller than this (logos/icons) |
 | `image_captioner.py` | `MAX_WORKERS` | `3` | Parallel captioning threads |
 
----
-
-##  Module Overview
-
-### `pdf_extractor.py`
-Uses **PyMuPDF (fitz)** to extract page-by-page text and all embedded images. Images are saved to `data/images/` with filenames like `page3_img2.jpeg` for page tracking.
-
-### `image_captioner.py`
-Sends each image to **LLaVA-Phi3** via Ollama's `/api/chat` endpoint with a detailed structured prompt. Captions include image type, content, labels, key takeaway, and figure numbers. Tiny images (< 10KB) are skipped automatically.
-
-### `chunker.py`
-Splits extracted text into overlapping chunks with page number metadata. Handles three cases: form-feed page breaks, `Page N` markers in text, and no page info. Image captions are treated as individual chunks.
-
-### `embedder.py`
-Embeds all chunks in parallel using **ThreadPoolExecutor** (8 workers by default). Stores embeddings in **ChromaDB** with cosine similarity space. Uses a single shared client for efficiency.
-
-### `retriever.py`
-Embeds the user query and searches ChromaDB for the nearest chunks. Returns text, source type, page number, and similarity distance.
-
-### `answerer.py`
-Builds a structured prompt with labeled page context blocks and streams the LLM response token-by-token. Detects question type (Summary, Comparison, Data, List, Explanation, Visual, Factual) to adapt the prompt style.
-
----
-
 ## Author
 
 **Muhammad Humais Aslam**
 AI Engineer · Automation Builder
 [LinkedIn](https://linkedin.com/in/humaisaslam) · [GitHub](https://github.com/yourusername) · humaisaslam@gmail.com
+
 
 
 
