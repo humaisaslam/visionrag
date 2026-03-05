@@ -8,58 +8,6 @@ Unlike cloud-based document Q&A tools, **your data never leaves your machine.** 
 
 ---
 
-## Features
-
-- **Text + Image Understanding** — Extracts and indexes both text and embedded images from PDFs
-- **Vision Captioning** — Uses a local Vision Language Model (LLaVA-Phi3) to describe charts, diagrams, tables, and figures
-- **Semantic Search** — Embeds all content with `qwen3-embedding:4b` and stores in ChromaDB for fast cosine similarity retrieval
-- **Streaming Chat UI** — Clean Streamlit interface with real-time streamed answers
-- **Response Modes** — Toggle between Short (2-sentence) and Normal (detailed) answers
-- **100% Offline** — No cloud APIs, no data sent externally, runs entirely on your hardware
-- **Parallel Embedding** — Multi-threaded embedding pipeline for fast ingestion of large PDFs
-
----
-
-##  Architecture
-
-```
-PDF Input
-    │
-    ▼
-┌─────────────────┐
-│  pdf_extractor  │ ──── Extracts text (page-by-page) + embedded images
-└────────┬────────┘
-         │
-    ┌────┴────────────┐
-    ▼                 ▼
-┌─────────┐    ┌──────────────────┐
-│ chunker │    │ image_captioner  │ ──── LLaVA-Phi3 via Ollama (parallel)
-└────┬────┘    └────────┬─────────┘
-     │                  │
-     └──────┬───────────┘
-            ▼
-     ┌─────────────┐
-     │   embedder  │ ──── qwen3-embedding:4b (8 parallel workers)
-     └──────┬──────┘
-            ▼
-     ┌─────────────┐
-     │  ChromaDB   │ ──── Persistent vector store (cosine similarity)
-     └──────┬──────┘
-            │
-    ┌───────┴────────┐
-    ▼                ▼
-┌──────────┐   ┌──────────┐
-│ retriever│   │ answerer │ ──── llava-phi3 LLM (streamed output)
-└──────────┘   └──────────┘
-            │
-            ▼
-     ┌─────────────┐
-     │  Streamlit  │ ──── Chat UI with reference tracking
-     └─────────────┘
-```
-
----
-
 ##  Project Structure
 
 ```
@@ -78,13 +26,6 @@ vision-rag/
 
 ---
 
-##  Requirements
-
-### System Requirements
-- Python 3.10+
-- [Ollama](https://ollama.com) installed and running (`ollama serve`)
-- 8GB+ RAM recommended (16GB for larger PDFs)
-- GPU optional but significantly speeds up captioning
 
 ### Python Dependencies
 
@@ -137,19 +78,7 @@ streamlit run app.py
 
 **6. Open your browser** at `http://localhost:8501`
 
----
-
-##  How to Use
-
-1. **Upload a PDF** via the sidebar
-2. Optionally check **"Clear existing KB first"** if switching documents
-3. Click ** Start Ingestion** — the pipeline will extract, caption, chunk, and embed your PDF
-4. **Ask questions** in the chat input at the bottom
-5. Toggle **Short / Normal** response mode depending on how detailed you need answers
-
----
-
-## 🔧 Configuration
+##  Configuration
 
 Key settings are at the top of each module:
 
@@ -193,6 +122,7 @@ Builds a structured prompt with labeled page context blocks and streams the LLM 
 **Muhammad Humais Aslam**
 AI Engineer · Automation Builder
 [LinkedIn](https://linkedin.com/in/humaisaslam) · [GitHub](https://github.com/yourusername) · humaisaslam@gmail.com
+
 
 
 
