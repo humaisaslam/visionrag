@@ -143,7 +143,7 @@ streamlit run app.py
 
 1. **Upload a PDF** via the sidebar
 2. Optionally check **"Clear existing KB first"** if switching documents
-3. Click **⚡ Start Ingestion** — the pipeline will extract, caption, chunk, and embed your PDF
+3. Click ** Start Ingestion** — the pipeline will extract, caption, chunk, and embed your PDF
 4. **Ask questions** in the chat input at the bottom
 5. Toggle **Short / Normal** response mode depending on how detailed you need answers
 
@@ -188,36 +188,11 @@ Builds a structured prompt with labeled page context blocks and streams the LLM 
 
 ---
 
-## 📊 Performance Notes
-
-- **Ingestion speed** depends heavily on the number of images (captioning is the bottleneck)
-- Text-only PDFs ingest very fast (~seconds for small docs)
-- Image captioning: ~15-60s per image depending on hardware
-- Retrieval + answer generation: typically 5-30s depending on response length
-
----
-
-## 🛣️ Roadmap
-
-- [ ] Multi-PDF support with source filtering
-- [ ] OCR fallback for scanned PDFs
-- [ ] Conversation memory across sessions
-- [ ] Docker containerization
-- [ ] Support for additional vision models (LLaVA 1.6, Moondream)
-- [ ] Export chat history to PDF/markdown
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
-
----
-
-## 👤 Author
+## Author
 
 **Muhammad Humais Aslam**
 AI Engineer · Automation Builder
 [LinkedIn](https://linkedin.com/in/humaisaslam) · [GitHub](https://github.com/yourusername) · humaisaslam@gmail.com
+
 
 
